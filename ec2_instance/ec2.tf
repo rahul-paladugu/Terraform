@@ -1,6 +1,6 @@
 resource "aws_instance" "terraform" {
   ami           = "ami-09c813fb71547fc4f"
-  vpc_security_group_ids = "[aws_security_group.all_traffic.id]"
+  vpc_security_group_ids = [aws_security_group.all_traffic.id]
 
   tags = {
     Name = "mysql"
