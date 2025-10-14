@@ -9,21 +9,23 @@ resource "aws_instance" "mysql" {
   }
 }
 
-    resource "aws_security_group" "all_traffic" {
-      name        = "allow all traffic"
-      description = "Allow all traffic"
+resource "aws_security_group" "all_traffic" {
+  name        = "allow all traffic"
+  description = "Allow all traffic"
+  tags = {
+    Name = "allow_all_traffic"
+    }
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    }
 
-      ingress {
-        from_port   = 0
-        to_port     = 0
-        protocol    = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
-      }
-
-      egress {
-        from_port   = 0
-        to_port     = 0
-        protocol    = "-1" # Allow all outbound traffic
-        cidr_blocks = ["0.0.0.0/0"]
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1" # Allow all outbound traffic
+    cidr_blocks = ["0.0.0.0/0"]
       }
     }
