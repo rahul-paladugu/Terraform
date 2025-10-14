@@ -12,7 +12,7 @@ resource "aws_instance" "terraform" {
 
 resource "aws_security_group" "all_traffic" {
 
-Name = "Allow_all_traffic"
+name = "Allow_all_traffic"
 
 ingress {
     from_port        = var.ingres_from_port
