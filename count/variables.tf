@@ -4,11 +4,10 @@ variable "ami_id" {
 }
 
 variable "environment" {
-    type = "string"
+    type = string
     default = "prod"
 }
 
 variable "microservices" {
-    type = list(string)
-    default = ["mongodb", "rabbitmq", "mysql", "redis"]
+    default = ["mongodb", "rabbitmq", "redis", "mysql"]
 }
