@@ -2,7 +2,7 @@ resource "aws_instance" "roboshop-for-each" {
     for_each = var.instances
     ami = "ami-09c813fb71547fc4f"
     instance_type = each.value
-    vpc_security_group_ids = []
+    vpc_security_group_ids = [aws_security_group.all-traffic.id]
     tags = {
         Name = each.key
         Terraform = true
