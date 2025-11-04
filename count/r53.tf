@@ -4,6 +4,6 @@ resource "aws_route53_record" "roboshop-dns" {
     name = "${var.microservices[count.index]}.rscloudservices.icu"
     type = "A"
     ttl = 1
-    records = [aws_instance.roboshop[count.index].private_ip]
+    records = [aws_instance.roboshop-count[count.index].private_ip]
     allow_overwrite = true
 }
