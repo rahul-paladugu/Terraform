@@ -1,4 +1,4 @@
-resource "aws_route53_records" "roboshop-dns" {
+resource "aws_route53_record" "roboshop-dns" {
     count = length(var.microservices)
     zone_id = "Z0711084A6IKM873A3LI"
     name = "${var.microservices[count.index]}.rscloudservices.icu"
