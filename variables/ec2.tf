@@ -3,8 +3,8 @@ resource "aws_instance" "roboshop_var" {
     instance_type           = var.instance_type
     vpc_security_group_ids  = [aws_security_group.allow_all_traffic.id]
     tags = {
-        name = "application-use1"
-        terraform = true
+        Name = "application-use1"
+        Terraform = true
     }
 }
 
@@ -24,7 +24,7 @@ resource "aws_security_group" "allow_all_traffic" {
     cidr_blocks      = var.cidr
     }
    tags = {
-    name = "Allow-All-Traffic"
-    terraform = true
+    Name = "Allow-All-Traffic"
+    Terraform = true
    }
 }
