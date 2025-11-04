@@ -8,7 +8,7 @@ variable "environment" {
     default = "prod"
 }
 
-variable "micro-services" {
+variable "microservices" {
     type = list(string)
     default = ["mongodb", "rabbitmq", "mysql", "redis"]
 }
