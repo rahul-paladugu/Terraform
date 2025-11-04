@@ -1,11 +1,14 @@
-resource "aws_instance" "roboshop-var" {
+resource "aws_instance" "roboshop_var" {
     ami                     = var.ami_id
     instance_type           = var.instance_type
-    vpc_security_group_ids  = aws_security_group.allow-all-traffic.id
+    vpc_security_group_ids  = [aws_security_group.allow_all_traffic.id]
+    tags = {
+        name = "roboshop-var"
+    }
 }
 
-resource "aws_security_group" "allow-all-traffic" {
-    name = "Allow-all-traffic"
+resource "aws_security_group" "allow_all_traffic" {
+    name = "allow_all_traffic"
     egress {
     from_port        = var.egress_from_port
     to_port          = var.egress_to_port
@@ -19,7 +22,7 @@ resource "aws_security_group" "allow-all-traffic" {
     cidr_blocks      = var.cidr
     }
    tags = {
-    name = "Allow-All-Traffic"
+    name = "Allow_All_Traffic"
     terraform = true
    }
 }

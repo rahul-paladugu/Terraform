@@ -30,6 +30,16 @@ variable "ingress_to_port" {
 }
 
 variable "cidr" {
-    type = list(number)
+    type = list(string)
     default = ["0.0.0.0/0"]
+}
+
+variable "roboshop_r53_hosted_zone" {
+    type = string
+    default = "Z0711084A6IKM873A3LI"
+}
+
+variable "domain_id" {
+    type = string
+    default = "rscloudservices.icu"
 }
