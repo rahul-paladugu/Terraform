@@ -3,6 +3,7 @@ resource "aws_instance" "roboshop" {
     instance_type = "t3.micro"
     tags = {
         Name = "roboshop"
+        Terraform = true
     }
   
 }
@@ -23,5 +24,6 @@ resource "aws_security_group" "allow-all-traffic" {
   }
 tags = {
     Name = "Allow all traffic"
+    Terraform = true
   }
 }
