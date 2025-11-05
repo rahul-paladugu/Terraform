@@ -1,6 +1,6 @@
 resource "aws_instance" "roboshop" {
     count = length(var.microservices)
-    ami = data.aws_ami.ami.id
+    ami = data.aws_ami.rahul-practice.id
     instance_type = var.environment == "prod" ? "t3.micro" : "t2.micro"
     vpc_security_group_ids = [aws_security_group.all-traffic.id]
     tags = {

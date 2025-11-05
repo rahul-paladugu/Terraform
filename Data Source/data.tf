@@ -1,19 +1,19 @@
-data "aws_ami" "ami" {
-  most_recent      = true
-  owners           = ["973714476881"]
+data "aws_ami" "rahul-practice" {
+    owners           = ["973714476881"]
+    most_recent      = true
+    
+    filter {
+        name   = "name"
+        values = ["RHEL-9-DevOps-Practice"]
+    }
 
-  filter {
-    name   = "name"
-    values = ["RHEL-9-DevOps-Practice"]
-  }
+    filter {
+        name   = "root-device-type"
+        values = ["ebs"]
+    }
 
-  filter {
-    name   = "Source-AMI-ID"
-    values = ["ami-008e7b65af911ed5c"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+    filter {
+        name   = "virtualization-type"
+        values = ["hvm"]
+    }
 }
