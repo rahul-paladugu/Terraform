@@ -21,14 +21,13 @@ variable "instance_type" {
 
 variable "egress_ports" {
     type = list(string)
-    default = "[22,36,54, 66]"
+    default = "[22, 36, 54, 66]"
 }
 
 variable "ingress_ports" {
     type = list(string)
-    default = "[22,36,54, 66]"
+    default = "[22, 36, 54, 66]"
 }
-
 
 variable "cidr" {
     type = list(string)
