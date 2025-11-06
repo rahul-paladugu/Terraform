@@ -2,7 +2,7 @@ resource "aws_instance" "roboshop" {
     ami                    = data.aws_ami.rahul-practice.id
     instance_type          = local.instance_type
     vpc_security_group_ids = [aws_security_group.all-traffic.id]
-    tags                   = local.common_tags
+    tags                   = local.ec2_tags
     provisioner "local-exec" {
       command = "echo ec2 is created and the ip is ${self.public_ip} > inventory"
       on_failure = continue #Optional - terraform continues to execution even if this is failed.
@@ -11,6 +11,16 @@ resource "aws_instance" "roboshop" {
       command = "echo the server ${self.private_ip} is destroyed"
       on_failure = continue
       when = destroy # terraform runs this provisioner during destroy
+    }
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      password = "DevOps321"
+      host = self.public_ip
+    }
+    provisioner "remote-exec" {
+      inline = ["sudo dnf install nginx -y", "sudo systemctl start nginx", 
+                  "echo nginx is installed and running in the server"]
     }
 }
 

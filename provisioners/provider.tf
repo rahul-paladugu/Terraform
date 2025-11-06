@@ -10,7 +10,7 @@ terraform {
     key            = "demo-remote-state"          # Replace with your desired key/path
     region         = "us-east-1"                  # Replace with your AWS region
     encrypt        = true                         # Optional: Enable server-side encryption
-    use_lockfile   = true                         # Optional: For state locking 
+    use_lockfile   = false                    # Optional: For state locking 
   }
 }
 
