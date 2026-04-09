@@ -1,5 +1,5 @@
 resource "aws_instance" "jumphost" {
-    ami = "ami-09c813fb71547fc4f"
+    ami = "ami-0220d79f3f480ecf5"
     instance_type = "t3.micro"
     tags = {
         Name = "jumphost"
