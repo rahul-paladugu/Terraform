@@ -1,8 +1,8 @@
-resource "aws_instance" "jumphost" {
+resource "aws_instance" "jump-host" {
     ami = "ami-0220d79f3f480ecf5"
     instance_type = "t3.micro"
     tags = {
-        Name = "jumphost"
+        Name = "jump-host"
         Terraform = true
     }
   
